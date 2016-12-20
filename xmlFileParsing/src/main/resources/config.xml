@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+<peval name="eval0">
+	<input fileName="file:///Users/hasnaoui/Desktop/soft/test_Data/test_Data1.csv" format="csv" dataSep=","/>
+	<output fileName="/Users/hasnaoui/Desktop/soft/Result"/>
+	<qid>
+		<att name="NBPIECS" type="Int" prob="1"/>
+		<att name="CDQUALP"/>
+		<att name="CDHABIT"/>
+		<att name="CDRESID"/>
+		<att name="dept" type="Int" prob="0.5"/>
+	</qid>
+	<sens>
+		<att name="nbsin_cnt" type="Int"/>
+		<att name="charge_cnt" type="Float"/>
+		<att name="nbsin_dde" type="Int"/>
+	</sens>
+</peval>
+</config>
