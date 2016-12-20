@@ -4,7 +4,10 @@ import scala.xml._
 import java.io.IOException
 
 case class Attribut(name: String, typedata: String, cat: String, prob: Option[Float], explode: Boolean, explodePara: Map[String,String])
-
+/*
+ * ConfigParser parses the xml file
+ * @param configPath is the path of the xml file to parse
+ */
 class ConfigParser(configPath: String){
   
   var dataPath: String = _
@@ -26,6 +29,7 @@ class ConfigParser(configPath: String){
   def parseConfig() {
     /*
      * parsing the config file described
+     *
      */
     try{
       confXML = XML.load(configPath)
@@ -45,6 +49,9 @@ class ConfigParser(configPath: String){
     }   
   }
   
+  /*
+   * setDataPath extract the data path
+   */
   private def setDataPath(){ 
       dataPath = confXML.\\("input")(0).attribute("fileName") match{
         case Some(x) => x.toString()
@@ -52,13 +59,18 @@ class ConfigParser(configPath: String){
       } 
   }
   
+  /*
+   *setOutputPath extract the output path 
+   */
   private def setOutputPath(){ 
       outputPath = confXML.\\("output")(0).attribute("fileName") match{
         case Some(x) => x.toString()
         case None => throw new Exception("unavailable fileName attribut")
       } 
   }
-  
+  /*
+   * set the data format otherwise throws exception
+   */
   private def setDataFormat(){
     dataFormat = confXML.\\("input")(0).attribute("format") match{
         case Some(x) => {
@@ -74,7 +86,9 @@ class ConfigParser(configPath: String){
         case None => None
       }
   }
-  
+  /*
+   * setAttributs extract the attributs 
+   */
   private def setAttributs(cat: String){
     /*
      * create the list of attribut from the config file
