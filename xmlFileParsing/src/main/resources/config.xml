@@ -4,7 +4,7 @@
 	<input fileName="file:///Users/hasnaoui/Desktop/soft/test_Data/test_Data1.csv" format="csv" dataSep=","/>
 	<output fileName="/Users/hasnaoui/Desktop/soft/Result"/>
 	<qid>
-		<att name="NBPIECS" type="Int" prob="0.75"/>
+		<att name="NBPIECS" type="Int" prob="0.55"/>
 		<att name="CDQUALP"/>
 		<att name="CDHABIT"/>
 		<att name="CDRESID"/>
